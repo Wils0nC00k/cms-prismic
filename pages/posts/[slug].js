@@ -17,7 +17,6 @@ export default function Post({ post, morePosts, preview }) {
   if (!router.isFallback && !post?._meta?.uid) {
     return <ErrorPage statusCode={404} />;
   }
-  console.log(post);
 
   return (
     <Layout preview={preview}>
