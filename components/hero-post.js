@@ -1,25 +1,14 @@
-import Link from 'next/link'
-import { RichText } from 'prismic-reactjs'
-import Avatar from '../components/avatar'
-import Date from '../components/date'
-import CoverImage from '../components/cover-image'
+import Link from "next/link";
+import { RichText } from "prismic-reactjs";
+import Avatar from "../components/avatar";
+import Date from "../components/date";
+import CoverImage from "../components/cover-image";
 
-export default function HeroPost({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-}) {
+export default function HeroPost({ title, coverImage, date, excerpt, author, slug }) {
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage
-          title={RichText.asText(title)}
-          slug={slug}
-          url={coverImage.url}
-        />
+        <CoverImage title={RichText.asText(title)} slug={slug} url={coverImage.url} />
       </div>
       <div className="md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28">
         <div>
@@ -36,9 +25,9 @@ export default function HeroPost({
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          {author && <Avatar name={author.name} picture={author.picture} />}
+          {author && <Avatar name={RichText.asText(author.name)} picture={author.picture} />}
         </div>
       </div>
     </section>
-  )
+  );
 }
